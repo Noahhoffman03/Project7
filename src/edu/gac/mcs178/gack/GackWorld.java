@@ -64,6 +64,8 @@ public class GackWorld extends World {
 		}
 		computerLab.gain(new Scroll("Unix Programmers Manual"));
 		computerLab.gain(new Scroll("NeXT User's Reference"));
+		lund.gain(new Scroll("Louis don't barf magival enchantment"));
+		//exercise 2, adds scroll to lund
 		
 		setPlayer(new Person("player", dormitory));
 	}
