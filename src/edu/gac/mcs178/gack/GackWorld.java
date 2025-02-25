@@ -7,6 +7,7 @@ import edu.gac.mcs178.gack.domain.Scroll;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
+import edu.gac.mcs178.gack.domain.Vigilante; //Adds the new character file 
 
 public class GackWorld extends World {
 	
@@ -23,6 +24,9 @@ public class GackWorld extends World {
 		Place offices = new Place("Offices");
 		Place dormitory = new Place("Dormitory");
 		Place pond = new Place("Pond");
+		
+		Place graveyard = new Place("Graveyard");
+		//Graveyard for vigilante victims
 		
 		Place lund = new Place("Lund");
 		//creates lund
@@ -47,13 +51,21 @@ public class GackWorld extends World {
 		offices.addNewNeighbor("north", lounge);
 		
 		dormitory.addNewNeighbor("northwest", lund);
+		lund.addNewNeighbor("southeast", dormitory);
 		//adds lund to map
+		
+		dormitory.addNewNeighbor("east", graveyard);
+		lund.addNewNeighbor("east", graveyard);
+		
 		
 		
 		new AutoPerson("Max", offices, 2);
 		new AutoPerson("Karl", computerLab, 4);
 		new Witch("Barbara", offices, 3, pond);
 		new Wizard("Elvee", offices, 1, chamberOfWizards);
+		
+		new Vigilante("Sam", lund, 2, graveyard); //The new character, the vigilante who hunts for witches
+		
 		
 		lounge.gain(new Thing("Karl's glasses"));
 		
@@ -64,8 +76,16 @@ public class GackWorld extends World {
 		}
 		computerLab.gain(new Scroll("Unix Programmers Manual"));
 		computerLab.gain(new Scroll("NeXT User's Reference"));
+		
 		lund.gain(new Scroll("Louis don't barf magival enchantment"));
 		//exercise 2, adds scroll to lund
+		
+		dormitory.gain(new Scroll("Late lab report"));
+		//class
+		
+		lund.gain(new Thing("Sam's missing glasses"));
+		//Missing glasses for the vigilante
+		
 		
 		setPlayer(new Person("player", dormitory));
 	}
