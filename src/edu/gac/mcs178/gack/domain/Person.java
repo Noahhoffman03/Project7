@@ -116,6 +116,17 @@ public class Person {
 		}
 	}
 	
+	public void give(Thing thing, Person person) {
+		if (!equals(thing.getOwner())) {
+			Utility.displayMessage(this + " doesn't have" + thing);
+		} else {
+			thing.becomeUnowned();
+			possessions.remove(thing);
+			person.take(thing);
+			say(this + " gave " + person + " " + thing);
+		}
+	}
+	
 	public void greet(List<Person> people) {
 		if (!people.isEmpty()) {
 			say("Hi " + Utility.verbalizeList(people, "no one")); // "no one" can't happen

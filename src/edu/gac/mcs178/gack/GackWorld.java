@@ -56,8 +56,8 @@ public class GackWorld extends World {
 		
 		dormitory.addNewNeighbor("east", graveyard);
 		lund.addNewNeighbor("east", graveyard);
-		
-		
+		graveyard.addNewNeighbor("northwest", lund);
+		graveyard.addNewNeighbor("southwest", dormitory);
 		
 		new AutoPerson("Max", offices, 2);
 		new AutoPerson("Karl", computerLab, 4);
