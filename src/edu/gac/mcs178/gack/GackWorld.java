@@ -64,7 +64,7 @@ public class GackWorld extends World {
 		new Witch("Barbara", offices, 3, pond);
 		new Wizard("Elvee", offices, 1, chamberOfWizards);
 		
-		new Vigilante("Sam", lund, 2, graveyard); //The new character, the vigilante who hunts for witches
+		new Vigilante("Sam", lund, 2, graveyard); //The new character, the vigilante who hunts for witches he can't see too well :'( 
 		
 		
 		lounge.gain(new Thing("Karl's glasses"));
