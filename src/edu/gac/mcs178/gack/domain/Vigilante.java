@@ -27,13 +27,12 @@ public class Vigilante extends AutoPerson {
 	        for (Thing item : personsPossessions) {
 	            if (item.getName().equals("Sam's missing glasses")) {  
 	                say("Hold on are those my glasses?");
-	                victim.lose(item);
-	                this.take(item);
+	                victim.give(item, this);
 	                return;
 	            }
 	        }
 
-	        // Check if this person has "Sam's missing glasses"
+	        // Check if the vigilante has "Sam's missing glasses"
 	        for (Thing item : this.getPossessions()) {
 	            if (item.getName().equals("Sam's missing glasses")) {
 	                say("You're lucky I have my glasses, I might've mistaken you for a witch!");
@@ -53,8 +52,8 @@ public class Vigilante extends AutoPerson {
 	
 	public void isBlind(Person person) {
 		say("Who goes there, are you the witch? I can't see without my glasses ");
-		shoot(person);
 		say("BAM");
+		shoot(person);
 	}
 	
 	public void shoot(Person person) {
